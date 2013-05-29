@@ -149,4 +149,15 @@ ActiveAdmin.setup do |config|
   #
   # Set the CSV builder options (default is {})
   # config.csv_options = {}
+
+  ActiveAdmin.register_page "Admin Help" do
+
+    action_item do
+      link_to "Admin Help", "/pages/4"
+    end
+
+    content do
+      para "Test"
+    end
+  end
 end

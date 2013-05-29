@@ -4,7 +4,7 @@ require 'bundler/capistrano'  # Add Bundler integration
 
 ssh_options[:forward_agent] = true
 set :deploy_via, :remote_cache
-#set :use_sudo, false
+set :use_sudo, false
 load 'deploy/assets'
 
 set :application, "drfa"
