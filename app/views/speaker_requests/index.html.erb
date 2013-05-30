@@ -1,21 +1,16 @@
-<h1>Listing speaker_requests</h1>
+<h2>Speaker Requests</h2>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Title</th>
-    <th>Content</th>
     <th>Date</th>
     <th>Speaker</th>
     <th>Location</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @speaker_requests.each do |speaker_request| %>
   <tr>
     <td><%= speaker_request.title %></td>
-    <td><%= speaker_request.content %></td>
     <td><%= speaker_request.date %></td>
     <td><%= speaker_request.speaker_id %></td>
     <td><%= speaker_request.location_id %></td>
@@ -29,3 +24,30 @@
 <br />
 
 <%= link_to 'New Speaker request', new_speaker_request_path %>
+
+
+<h1>Listing users</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>

@@ -1,4 +1,4 @@
 class Location < ActiveRecord::Base
   attr_accessible :name
-  has_and_belongs_to_many :speaker_requests
+  has_many :speaker_requests
 end
