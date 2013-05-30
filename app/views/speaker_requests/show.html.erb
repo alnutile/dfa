@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+
+<dl class="dl-horizontal">
+  <dt>Title</dt>
+  <dd><%= @speaker_request.title %></dd>
+
+  <dt>Description</dt>
+  <dd><%= @speaker_request.content %></dd> 
+
+  <dt>Date</dt>
+  <dd><%= @speaker_request.date %></dd>
+
+  <dt>Speaker</dt>
+  <dd>
+    <% if @speaker_request.speaker_id %>
+      <%= @speaker_request.speaker.firstname %>
+      <% else %>
+      <em>[no speaker click here to sign up]</em>
+    <% end %>
+  </dd>
+
+
+  <dt>Location</dt>
+  <dd>  
+    <% if @speaker_request.location_id %>
+      <%= @speaker_request.location.name %>
+      <% else %>
+      <em>[location not set]</em>
+    <% end %>
+  </dd>
+</dl>

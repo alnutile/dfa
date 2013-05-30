@@ -1,4 +1,13 @@
 Drfa::Application.routes.draw do
+  resources :speaker_requests
+
+
+  resources :speakers
+
+
+  resources :locations
+
+
   resources :pages
 
   ActiveAdmin.routes(self)
