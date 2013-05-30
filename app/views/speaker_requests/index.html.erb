@@ -1,6 +1,7 @@
-<h2>Speaker Requests</h2>
+<h3>Speaker Requests</h3>
 
-<table class="table table-striped">
+<div class="span10">
+<table class="table table-striped table-bordered table-hover">
   <tr>
     <th>Title</th>
     <th>Date</th>
@@ -10,44 +11,13 @@
 
 <% @speaker_requests.each do |speaker_request| %>
   <tr>
-    <td><%= speaker_request.title %></td>
+    <td><%= link_to speaker_request.title, speaker_request_path(speaker_request.id) %></td>
     <td><%= speaker_request.date %></td>
-    <td><%= speaker_request.speaker_id %></td>
-    <td><%= speaker_request.location_id %></td>
-    <td><%= link_to 'Show', speaker_request %></td>
-    <td><%= link_to 'Edit', edit_speaker_request_path(speaker_request) %></td>
-    <td><%= link_to 'Destroy', speaker_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= simple_format speakerName(speaker_request) %></td>
+    <td><%= simple_format locationName(speaker_request) %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Speaker request', new_speaker_request_path %>
-
-
-<h1>Listing users</h1>
-
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
-    <td><%= user.email %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New User', new_user_path %>
+<%= will_paginate %>
+</div>
