@@ -13,18 +13,10 @@
 
   <dt>Speaker</dt>
   <dd>
-    <% if @speaker_request.speaker_id %>
-      <%= @speaker_request.speaker.firstname %>
-      <% else %>
-      <em>[no speaker click here to sign up]</em>
-    <% end %>
+      <%= simple_format speakerName(@speaker_request) %>
   </dd>
   <dt>Location</dt>
-  <dd>  
-    <% if @speaker_request.location_id %>
-      <%= @speaker_request.location.name %>
-      <% else %>
-      <em>[location not set]</em>
-    <% end %>
+  <dd> 
+    <%= simple_format locationName(@speaker_request) %>
   </dd>
 </dl>
