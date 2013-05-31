@@ -9,7 +9,10 @@ ActiveAdmin.register SpeakerRequest do
 	   		f.input :public, :label => "Is this event open to the public?"
 	   		f.input :cme_ceu, :label => "Does the event need to be certified for CME or CEU credits?" 
 	   		f.input :train_trainer, :label => "Train the Trainer" 
-	   		f.input :tag_list, :as => :check_boxes, :multiple => true, :collection => ActsAsTaggableOn::Tag.all.map(&:name)
+	   		f.input :tag_list, :as => :string, :collection => ActsAsTaggableOn::Tag.all.map(&:name),
+	   			:label => "Type of Audience", 
+	   			:hint => "type * to see all the existing tags. Separate by comma to use more than one eg 
+	   			Example 1, Example 2"
 	   	end
 
    		f.actions
