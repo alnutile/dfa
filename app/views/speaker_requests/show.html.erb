@@ -5,19 +5,36 @@
 <dl class="dl-horizontal">
   <dt>Title</dt>
   <dd><%= @speaker_request.title %></dd>
-
-  <dt>Description</dt>
-  <dd><%= @speaker_request.content %></dd> 
-
+  
   <dt>Date</dt>
   <dd><%= @speaker_request.date %></dd>
 
+  <dt>Audience</dt>
+  <dd><%= @speaker_request.tag_list %></dd>
+  
   <dt>Speaker</dt>
   <dd>
       <%= simple_format speakerName(@speaker_request) %>
   </dd>
+
   <dt>Location</dt>
   <dd> 
     <%= simple_format locationName(@speaker_request) %>
   </dd>
+
+  <dt>Train the Trainer Event</dt>
+  <dd><%= @speaker_request.train_trainer ? 'Yes' : 'No' %></dd>
+ 
+  <dt>Open to Public</dt>
+  <dd><%= @speaker_request.public ? 'Yes' : 'No' %></dd>  
+
+  <dt>Event needs to be certified for CME or CEU credits</dt>
+  <dd>
+    <%= @speaker_request.cme_ceu ? 'Yes' : 'No' %>
+    </br><strong>Event needs to be certified for CME or CEU credits</strong>
+  </dd>
+  <hr>
+  <dt>Description</dt>
+  <dd><%= @speaker_request.content %></dd> 
+
 </dl>

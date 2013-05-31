@@ -3,4 +3,8 @@ class SpeakerRequest < ActiveRecord::Base
   belongs_to :speaker
   belongs_to :location
   acts_as_taggable_on :tags
+
+  def yes_or_no
+    attribute ? 'Yes' : 'No'
+  end
 end

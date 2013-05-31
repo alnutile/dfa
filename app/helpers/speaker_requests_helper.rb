@@ -16,5 +16,4 @@ module SpeakerRequestsHelper
 		 	@locationName = "<em>[no location yet]</em>"
 		 end
 	end
-
 end

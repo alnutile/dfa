@@ -10,6 +10,7 @@ gem 'acts-as-taggable-on'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'pg', '0.12.2'
 gem 'bootstrap-sass', '2.1'
+gem 'will_paginate-bootstrap'
 
 gem 'faker', '1.0.1'
 
