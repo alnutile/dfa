@@ -19,7 +19,11 @@
   <% @speaker_requests_upcoming.each do |speaker_request| %>
     <tr>
       <td><%= link_to speaker_request.title, speaker_request_path(speaker_request.id) %></td>
-      <td><%= speaker_request.date %></td>
+      <td>
+        <%= speaker_request.date.strftime("%A") %>,   
+        <%= speaker_request.date.strftime("%m/%d/%Y") %>
+        @ <%= speaker_request.date.strftime("%I:%M %p %Z") %>
+      </td>
       <td><%= speaker_request.tag_list %></td>
       <td><%= speaker_request.public ? 'Yes' : 'No'%></td>
       <td><%= simple_format speakerName(speaker_request) %></td>

@@ -3,8 +3,16 @@ class SpeakerRequest < ActiveRecord::Base
   belongs_to :speaker
   belongs_to :location
   acts_as_taggable_on :tags
+  # validate :incorrect_date, :on => :create
 
   def yes_or_no
     attribute ? 'Yes' : 'No'
   end
+
+  private
+   # def incorrect_date
+   # 	if date < Date.today
+   # 		errors.add("Please choose a future date")
+   # 	end
+   # end
 end
