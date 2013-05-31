@@ -1,4 +1,12 @@
 ActiveAdmin.register SpeakerRequest do
+
+	index do
+	    column :title
+	    column :date
+	    column :tag_list
+	    default_actions
+  	end
+
    form do |f|
    		f.inputs "Details" do
 	   		f.input :title
