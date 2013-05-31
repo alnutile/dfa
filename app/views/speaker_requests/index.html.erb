@@ -1,0 +1,39 @@
+<h3>Speaker Requests</h3>
+
+<div class="span10">
+
+  <span class="row-fluid">
+    <%= will_paginate @speaker_requests, :renderer => BootstrapPagination::Rails  %>
+  </span>
+
+  <table class="table table-striped table-bordered table-hover">
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Tags</th>
+      <th>Public</th>
+      <th>Speaker</th>
+      <th>Location</th>
+    </tr>
+
+  <% @speaker_requests_upcoming.each do |speaker_request| %>
+    <tr>
+      <td><%= link_to speaker_request.title, speaker_request_path(speaker_request.id) %></td>
+      <td>
+        <%= speaker_request.date.strftime("%A") %>,   
+        <%= speaker_request.date.strftime("%m/%d/%Y") %>
+        @ <%= speaker_request.date.strftime("%I:%M %p %Z") %>
+      </td>
+      <td><%= speaker_request.tag_list %></td>
+      <td><%= speaker_request.public ? 'Yes' : 'No'%></td>
+      <td><%= simple_format speakerName(speaker_request) %></td>
+      <td><%= simple_format locationName(speaker_request) %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <span class="row-fluid">
+    <%= will_paginate @speaker_requests_upcoming, :renderer => BootstrapPagination::Rails %>
+  </span>
+
+</div>
