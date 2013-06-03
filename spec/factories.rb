@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :speaker do
     sequence(:firstname)  { |n| "Speaker #{n}" }
   end
@@ -9,7 +8,8 @@ FactoryGirl.define do
     sequence(:speaker_id) { |n| n } 
     sequence(:date) { |n| dateNow }
     sequence(:tag_list) { |n| "Tag #{n}" }
-    sequence(:location_name) { |n| "Location #{n}" }
+    sequence(:city_list) { |n| "City #{n}" }
+    sequence(:state_list) { |n| "State #{n}" }
     sequence(:location_street) { |n| "Street #{n}" }
     
     content 'Coming Soon...' 
