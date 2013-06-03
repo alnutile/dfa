@@ -8,14 +8,15 @@ FactoryGirl.define do
   end
 
   factory :speaker_request do
+    dateNow = "2013-07-01 11:08:07.217949"
     sequence(:title)  { |n| "Speaker #{n}" }
-    sequence(:content) { |n| "Coming Soon..." }   
     sequence(:speaker_id) { |n| n }   
     sequence(:location_id) { |n| n }
-    sequence(:date) { |n| Time.now }
-    sequence(:train_trainer) { |n| 1 }
-    sequence(:cme_ceu) { |n| 1 }
-    sequence(:public) { |n| 1 }
-
+    sequence(:date) { |n| dateNow }
+    sequence(:tag_list) { |n| "Tag #{n}" }
+    content 'Coming Soon...' 
+    public 1
+    cme_ceu 1
+    train_trainer 1
   end
 end
