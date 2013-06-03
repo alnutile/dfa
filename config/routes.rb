@@ -5,9 +5,6 @@ Drfa::Application.routes.draw do
   resources :speakers
 
 
-  resources :locations
-
-
   resources :pages
 
   ActiveAdmin.routes(self)

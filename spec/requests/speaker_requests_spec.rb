@@ -4,18 +4,16 @@ describe "SpeakerRequests" do
  	subject { page }
 
 	let(:speaker_request) { FactoryGirl.create(:speaker_request) }
-	let(:location) { FactoryGirl.create(:location) }
 	let(:speaker) { FactoryGirl.create(:speaker) }
-
-	before(:all) do 
-		visit speaker_requests_path
-		30.times { FactoryGirl.create(:location) } 
-		30.times { FactoryGirl.create(:speaker) } 
-		30.times { FactoryGirl.create(:speaker_request) } 
-	end
 
  	describe "index" do
 
+
+		before(:all) do 
+			visit speaker_requests_path
+			30.times { FactoryGirl.create(:speaker) } 
+			30.times { FactoryGirl.create(:speaker_request) } 
+		end
 
  		after(:all) { SpeakerRequest.delete_all }
 
@@ -23,13 +21,13 @@ describe "SpeakerRequests" do
  			visit speaker_requests_path
  		end
 
- 		it "should have a title" do 
+ 		it "should have a view link" do 
  			should have_selector('h3', text: 'Speaker Requests') 
  		end
 
  		it "should list each request" do
 			SpeakerRequest.all.each do |sr|
-				should have_selector('a', text: sr.title) if sr.id < 20
+				should have_link('View', { :href => "/speaker_requests/#{sr.id}" }) if sr.id < 20
 			end
 		end	
  
@@ -56,8 +54,17 @@ describe "SpeakerRequests" do
 
  	end
 
- 	describe "Pager area" do
- 		it { should have_content('Next') }
+ 	describe "Speaker Page" do
+		#<h3>Request #<%= @speaker_request.id %></h3>
+		before(:each) do
+ 			visit speaker_request_path(speaker_request)
+ 		end
+		 
+		it { should have_selector('h3', text: "Request ##{speaker_request.id}") }
+ 	end
+
+ 	# describe "Pager area" do
+ 	# 	it { should have_content('Next') }
  	# 	let(:speaker_request) { FactoryGirl.create(:speaker_request) }
  	# 	let(:location) { FactoryGirl.create(:location) }
  	# 	let(:speaker) { FactoryGirl.create(:speaker) }
@@ -79,6 +86,6 @@ describe "SpeakerRequests" do
 		# it { should have_selector('td.speaker', text: 'Speaker 40') }
 		# it { should have_content('Next') }
 
- 	end
+ 	#  end
 
 end

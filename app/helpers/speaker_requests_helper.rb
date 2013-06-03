@@ -8,12 +8,4 @@ module SpeakerRequestsHelper
 		 end
 	end
 
-
-	def locationName(speakerRequestObject) 
-		 if speakerRequestObject.location_id
-		 	@locationName = speakerRequestObject.location.name
-		 else 
-		 	@locationName = "<em>[no location yet]</em>"
-		 end
-	end
 end

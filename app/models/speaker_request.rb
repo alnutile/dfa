@@ -1,7 +1,9 @@
 class SpeakerRequest < ActiveRecord::Base
-  attr_accessible :content, :date, :location_id, :speaker_id, :title, :train_trainer, :public, :cme_ceu, :tag_list
+  attr_accessible :content, :date, :speaker_id, :train_trainer, 
+    :public, :cme_ceu, :tag_list, :location_name, :location_street, :location_street_two,
+    :location_zip, :city, :state, :online, :requesting_org, :website, :contact_person, 
+    :phone, :email
   belongs_to :speaker
-  belongs_to :location
   acts_as_taggable_on :tags
   # validate :incorrect_date, :on => :create
 

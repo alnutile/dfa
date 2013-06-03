@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530231728) do
+ActiveRecord::Schema.define(:version => 20130603154400) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,12 +46,6 @@ ActiveRecord::Schema.define(:version => 20130530231728) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "locations", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -60,16 +54,26 @@ ActiveRecord::Schema.define(:version => 20130530231728) do
   end
 
   create_table "speaker_requests", :force => true do |t|
-    t.string   "title"
     t.text     "content"
     t.datetime "date"
     t.integer  "speaker_id"
-    t.integer  "location_id"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
-    t.boolean  "train_trainer", :default => false
-    t.boolean  "public",        :default => false
-    t.boolean  "cme_ceu",       :default => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.boolean  "train_trainer",       :default => false
+    t.boolean  "public",              :default => false
+    t.boolean  "cme_ceu",             :default => false
+    t.string   "location_name"
+    t.string   "location_street"
+    t.string   "location_street_two"
+    t.string   "location_zip"
+    t.string   "city"
+    t.string   "state"
+    t.boolean  "online",              :default => false
+    t.string   "requesting_org"
+    t.string   "website"
+    t.string   "contact_person"
+    t.string   "phone"
+    t.string   "email"
   end
 
   create_table "speakers", :force => true do |t|
