@@ -9,6 +9,9 @@ FactoryGirl.define do
     sequence(:speaker_id) { |n| n } 
     sequence(:date) { |n| dateNow }
     sequence(:tag_list) { |n| "Tag #{n}" }
+    sequence(:location_name) { |n| "Location #{n}" }
+    sequence(:location_street) { |n| "Street #{n}" }
+    
     content 'Coming Soon...' 
     public 1
     cme_ceu 1

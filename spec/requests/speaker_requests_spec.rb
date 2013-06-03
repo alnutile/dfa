@@ -47,7 +47,7 @@ describe "SpeakerRequests" do
 		it { should have_selector('td.speaker', text: 'Speaker 1') }
 
  		# Test Location
-		it { should have_selector('td.location', text: 'Location 1') }
+		it { should have_selector('td.state', text: 'State 1') }
 
 		# Test Tags
 		it { should have_selector('td.tags', text: 'Tag 1') }

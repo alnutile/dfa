@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603154400) do
+ActiveRecord::Schema.define(:version => 20130603175531) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -66,8 +66,6 @@ ActiveRecord::Schema.define(:version => 20130603154400) do
     t.string   "location_street"
     t.string   "location_street_two"
     t.string   "location_zip"
-    t.string   "city"
-    t.string   "state"
     t.boolean  "online",              :default => false
     t.string   "requesting_org"
     t.string   "website"

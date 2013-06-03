@@ -9,16 +9,16 @@ ActiveAdmin.register SpeakerRequest do
 
    form do |f|
    		f.inputs "Details" do
-	   		f.input :content
+	   		f.input :content, :hint => "Description of the event"
 	   		f.input :date
 	   		f.input :speaker_id, :as => :select, :collection => Speaker.all
 	   		f.input :public, :label => "Is this event open to the public?"
 	   		f.input :cme_ceu, :label => "Does the event need to be certified for CME or CEU credits?" 
 	   		f.input :train_trainer, :label => "Train the Trainer" 
-	   		f.input :tag_list, :as => :string, :collection => ActsAsTaggableOn::Tag.all.map(&:name),
-	   			:label => "Type of Audience", 
+	   		f.input :tag_list, :label => "Type of Audience", 
 	   			:hint => "type * to see all the existing tags. Separate by comma to use more than one eg 
 	   			Example 1, Example 2"
+
 
 	   	end
 	   	f.inputs "Location: Online" do
@@ -31,8 +31,8 @@ ActiveAdmin.register SpeakerRequest do
 	   		f.input :location_street
 	   		f.input :location_street_two, :label => "Second Part of Address"
 	   		f.input :location_zip
-	   		f.input :city
-	   		f.input :state
+	   		f.input :city_list, :label => "City"
+	   		f.input :state_list, :label => "State"
 	   		f.input :requesting_org
 	   		f.input :website, :hint => "full URL htt://google.com"
 	   		f.input :contact_person

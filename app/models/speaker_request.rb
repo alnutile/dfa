@@ -1,10 +1,11 @@
 class SpeakerRequest < ActiveRecord::Base
   attr_accessible :content, :date, :speaker_id, :train_trainer, 
     :public, :cme_ceu, :tag_list, :location_name, :location_street, :location_street_two,
-    :location_zip, :city, :state, :online, :requesting_org, :website, :contact_person, 
-    :phone, :email
+    :location_zip, :online, :requesting_org, :website, :contact_person, 
+    :phone, :email, :state_list, :city_list
   belongs_to :speaker
-  acts_as_taggable_on :tags
+  acts_as_taggable
+  acts_as_taggable_on :tags, :city, :state
   # validate :incorrect_date, :on => :create
 
   def yes_or_no
