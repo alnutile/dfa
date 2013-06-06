@@ -1,39 +1,49 @@
+<div class="row-fluid span12">
 <h3>Speaker Requests</h3>
 
-<div class="span10">
+<span class="span3">
+  <%= render 'shared/search' %>
+</span>
 
-  <span class="row-fluid">
-    <%= will_paginate @speaker_requests, :renderer => BootstrapPagination::Rails  %>
-  </span>
+<span class="span8">
+    <span class="span12">
+      <%= will_paginate @speaker_requests_upcoming, :renderer => BootstrapPagination::Rails  %>
+    </span>
+    <table class="table table-striped table-bordered table-hover">
+      <tr>
+        <th>View</th>
+        <th>Date</th>
+        <th>Tags</th>
+        <th>Public</th>
+        <th>Speaker</th>
+        <th>City, State</th>
+      </tr>
 
-  <table class="table table-striped table-bordered table-hover">
-    <tr>
-      <th>View</th>
-      <th>Date</th>
-      <th>Tags</th>
-      <th>Public</th>
-      <th>Speaker</th>
-      <th>Location</th>
-    </tr>
+    <% @speaker_requests_upcoming.each do |speaker_request| %>
+      <tr>
+        <td class="title"><%= link_to "View", speaker_request_path(speaker_request.id) %></td>
+        <td class="date">
+          <%= speaker_request.date.strftime("%A") %>,   
+          <%= speaker_request.date.strftime("%m/%d/%Y") %>
+          @ <%= speaker_request.date.strftime("%I:%M %p %Z") %>
+        </td>
+        <td class="tags"><%= speaker_request.tag_list %></td>
+        <td class="public"><%= speaker_request.public ? 'Yes' : 'No'%></td>
+        <td class="speaker"><%= simple_format speakerName(speaker_request) %></td>
+        <td class="location">
+          <% speaker_request.city.each do |c| %>
+            <%= c.name %>, 
+          <% end %>
+          <% speaker_request.state.each do |s| %>
+            <%= s.name %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
 
-  <% @speaker_requests_upcoming.each do |speaker_request| %>
-    <tr>
-      <td class="title"><%= link_to "View", speaker_request_path(speaker_request.id) %></td>
-      <td class="date">
-        <%= speaker_request.date.strftime("%A") %>,   
-        <%= speaker_request.date.strftime("%m/%d/%Y") %>
-        @ <%= speaker_request.date.strftime("%I:%M %p %Z") %>
-      </td>
-      <td class="tags"><%= speaker_request.tag_list %></td>
-      <td class="public"><%= speaker_request.public ? 'Yes' : 'No'%></td>
-      <td class="speaker"><%= simple_format speakerName(speaker_request) %></td>
-      <td class="location"><%= speaker_request.location_name %></td>
-    </tr>
-  <% end %>
-  </table>
-
-  <span class="row-fluid">
-    <%= will_paginate @speaker_requests_upcoming, :renderer => BootstrapPagination::Rails %>
-  </span>
-
-</div>
+    <span class="row-fluid">
+      <%= will_paginate @speaker_requests_upcoming, :renderer => BootstrapPagination::Rails %>
+    </span>
+  </div>
+</span>

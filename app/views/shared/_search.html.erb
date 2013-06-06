@@ -1,0 +1,17 @@
+<%= form_tag speaker_requests_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <p>
+  	State:
+  </p>
+  <%= link_to "Submit Request",
+        { :controller => 'speaker_requests', :action => "new" },
+	{ :id => "speaker-request",
+	  :class => "btn btn-large btn-warning", 
+          :type => "button"
+	}
+   %>
+    
+<% end %>

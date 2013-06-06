@@ -11,8 +11,9 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'pg', '0.12.2'
 gem 'bootstrap-sass', '2.1'
 gem 'will_paginate-bootstrap'
-
+gem 'jquery_datepicker'
 gem 'faker', '1.0.1'
+gem 'jquery-ui-themes'
 
 gem 'therubyracer'
 gem 'rvm-capistrano'
