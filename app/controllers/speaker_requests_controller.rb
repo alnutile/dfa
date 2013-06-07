@@ -18,7 +18,7 @@ class SpeakerRequestsController < InheritedResources::Base
     if @speaker_request.save
       flash[:success] = "Thanks for making the request. We will get back to you shortly"
       redirect_to speaker_requests_path
-      #redirect_to @speaker_request
+      SpeakerRequestMail.new_request_notify(@speaker_request).deliver
     else
       render 'new'
     end
