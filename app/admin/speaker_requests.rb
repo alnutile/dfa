@@ -11,8 +11,9 @@ ActiveAdmin.register SpeakerRequest do
    		f.inputs "Details" do
 	   		f.input :content, :hint => "Description of the event"
 	   		f.input :date
-	   		f.input :speaker_id, :as => :select, :collection => Speaker.all
-	   		f.input :public, :label => "Is this event open to the public?"
+	   		f.input :speaker_id, :as => :select, :collection => Speaker.all	
+			f.input :published, :label => "Show on the website."
+			f.input :public, :label => "Is this event open to the public?"
 	   		f.input :cme_ceu, :label => "Does the event need to be certified for CME or CEU credits?" 
 	   		f.input :train_trainer, :label => "Train the Trainer" 
 	   		f.input :tag_list, :label => "Type of Audience", 

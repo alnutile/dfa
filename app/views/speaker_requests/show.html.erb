@@ -2,39 +2,62 @@
 
 <h3>Request #<%= @speaker_request.id %></h3>
 
-<dl class="dl-horizontal">
-  
-  <dt>Date</dt>
-  <dd><%= @speaker_request.date %></dd>
+<span class="row">
+  <span class="span6">
+    <dl class="dl-horizontal">
+      
+      <dt>Date</dt>
+      <dd class="date"><%= @speaker_request.date %></dd>
 
-  <dt>Audience</dt>
-  <dd><%= @speaker_request.tag_list %></dd>
-  
-  <dt>Speaker</dt>
-  <dd>
-      <%= simple_format speakerName(@speaker_request) %>
-  </dd>
+      <dt>Audience</dt>
+      <dd><%= @speaker_request.tag_list %></dd>
+      
+      <dt>Speaker</dt>
+      <dd>
+          <%= simple_format speakerName(@speaker_request) %>
+      </dd>
 
-  <dt>Location</dt>
-  <dd> 
-    <%= simple_format @speaker_request.location_name %>
-  </dd>
+      <dt>Location</dt>
+      <dd> 
+        <%= simple_format @speaker_request.location_name %>
+      </dd>
 
-  <dt>Train the Trainer Event</dt>
-  <dd><%= @speaker_request.train_trainer ? 'Yes' : 'No' %></dd>
- 
-  <dt>Open to Public</dt>
-  <dd><%= @speaker_request.public ? 'Yes' : 'No' %></dd>  
+      <dt>Online</dt>
+      <dd> 
+        <%= simple_format @speaker_request.online ? 'Yes' : 'No' %>
+      </dd>
 
-  <dt>Event needs to be certified for CME or CEU credits</dt>
-  <dd>
-    <%= @speaker_request.cme_ceu ? 'Yes' : 'No' %>
-  </dd>
+      <dt>Train the Trainer Event</dt>
+      <dd><%= @speaker_request.train_trainer ? 'Yes' : 'No' %></dd>
+     
+      <dt>Open to Public</dt>
+      <dd><%= @speaker_request.public ? 'Yes' : 'No' %></dd>  
 
-  </br><em>Event needs to be certified for CME or CEU credits</em>
-  
-  <hr>
-  <dt>Description</dt>
-  <dd><%= @speaker_request.content %></dd> 
+      <dt>Event needs to be certified for CME or CEU credits</dt>
+      <dd>
+        <%= @speaker_request.cme_ceu ? 'Yes' : 'No' %>
+      </dd>
 
-</dl>
+      </br><em>Event needs to be certified for CME or CEU credits</em>
+      
+      <hr>
+      <dt>Description</dt>
+      <dd><%= @speaker_request.content %></dd> 
+
+    </dl>
+  </span>
+  <span class="span4">
+    <h4>Speaker</h4>
+    <% if @speaker_request.speaker %>
+        <dt>First Name</dt>
+        <dd><%= @speaker_request.speaker.firstname %></dd>
+        <dt>Last Name</dt>
+        <dd><%= @speaker_request.speaker.lastname %></dd>
+        <dt>Related Org</dt>
+        <dd><%= @speaker_request.speaker.relatedorg %></dd>
+        <dt>Tags</dt>
+        <dd><%= @speaker_request.speaker.speakertag_list %></dd>
+    <% end %>
+  </span>
+</span>
+

@@ -2,11 +2,21 @@ class SpeakerRequest < ActiveRecord::Base
   attr_accessible :content, :date, :speaker_id, :train_trainer, 
     :public, :cme_ceu, :tag_list, :location_name, :location_street, :location_street_two,
     :location_zip, :online, :requesting_org, :website, :contact_person, 
-    :phone, :email, :state_list, :city_list
+    :phone, :email, :state_list, :city_list, :published
   belongs_to :speaker
   acts_as_taggable
   acts_as_taggable_on :tags, :city, :state
   # validate :incorrect_date, :on => :create
+
+  scope :published, -> { where published: true }
+  scope :content, ->(searched) { where(["content LIKE ?", "%#{searched}%"]) }
+  scope :date_range, ->(start_date, end_date) {
+    where("date between ? and ?", start_date, end_date)
+  }
+
+  # date range / month object 
+  #   pass it a range
+  #   this is active_record
 
   def yes_or_no
     attribute ? 'Yes' : 'No'

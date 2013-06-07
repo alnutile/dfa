@@ -1,4 +1,5 @@
-<%= form_for(@speaker_request) do |f| %>
+<div class="span8 well">
+<%= form_for(@speaker_request, :html => { :class => "form-horizontal" }) do |f| %>
   <% if @speaker_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@speaker_request.errors.count, "error") %> prohibited this speaker_request from being saved:</h2>
@@ -12,20 +13,124 @@
   <% end %>
 
 
-  <div class="field span12">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
   <div class="field">
     <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
+    <%= f.datetime_picker("date", :minDate => 1, :dateFormat => "yy-mm-dd") %>
   </div>
-  <div class="field">
-    <%= f.label :speaker_id %><br />
-    <%= f.collection_select :speaker_id, Speaker.all, :id, :firstname %>
+  <label class="checkbox">
+    <%= check_box_tag(:public) %>
+    <%= label_tag(:public, "Is this event Public?") %>
+  </label>
+  
+  <label class="checkbox">
+      <%= f.check_box :cme_ceu %>
+      <%= label_tag(:cme_ceu, 
+      		"Does this even need to be certified for CMI or CEU credits?") %>
+  </label>
+
+  <label class="checkbox">
+      <%= f.check_box :train_trainer %>
+      <%= label_tag(:train_trainer, 
+      	      'Train the Trainer?') %>
+  </label>
+
+  <div class="control-group">	
+    <label class="control-label" for="requesting_org">
+      <%= label_tag(:requesting_org, "Requesting Org Name") %>
+    </label>
+    <div class="controls">
+     <%= f.text_field :requesting_org %>
+    </div>
+  </div>
+  <div class="control-group">	
+    <label class="control-label" for="location-name">
+      <%= label_tag(:location_name, "Location Name") %>
+    </label>
+    <div class="controls">
+     <%= f.text_field :location_name %>
+    </div>
+  </div>
+  <div class="control-group">	
+    <label class="control-label" for="location-street">
+      <%= label_tag(:location_street, "Location Street") %>
+    </label>
+    <div class="controls">
+     <%= f.text_field :location_street %>
+    </div>
+  </div>
+  <div class="control-group">	
+    <label class="control-label" for="location-street-two">
+      <%= label_tag(:location_street_two, "Location Street Two") %>
+    </label>
+    <div class="controls">
+     <%= f.text_field :location_street_two %>
+    </div>
+  </div>
+  <div class="control-group">	
+    <label class="control-label" for="location-zip">
+      <%= label_tag(:location_zip, "Postal Code") %>
+    </label>
+    <div class="controls">
+     <%= f.text_field :location_zip %>
+    </div>
+  </div>
+  <div class="control-group">	
+    <label class="control-label" for="city_list">
+      <%= label_tag(:city_list, "City") %>
+    </label>
+    <div class="controls">
+     <%= f.text_field :city_list %>
+    </div>
+  </div>
+  <div class="control-group">	
+    <label class="control-label" for="state_list">
+      <%= label_tag(:state_list, "State") %>
+    </label>
+    <div class="controls">
+     <%= f.text_field :city_list %>
+    </div>
+  </div>
+  <div class="control-group">	
+    <label class="control-label" for="website">
+      <%= label_tag(:website, "Website") %>
+    </label>
+    <div class="controls">
+     <%= f.text_field :website %>
+    </div>
+  </div>
+  <div class="control-group">	
+    <label class="control-label" for="contact-person">
+      <%= label_tag(:contact_person, "Contact Person") %>
+    </label>
+    <div class="controls">
+     <%= f.text_field :contact_person %>
+    </div>
+  </div>
+  <div class="control-group">	
+    <label class="control-label" for="phone">
+      <%= label_tag(:phone, "Phone") %>
+    </label>
+    <div class="controls">
+     <%= f.text_field :phone %>
+    </div>
+  </div>
+  <div class="control-group">	
+    <label class="control-label" for="email">
+      <%= label_tag(:email, "Email") %>
+    </label>
+    <div class="controls">
+     <%= f.text_field :email %>
+    </div>
   </div>
 
-  <div class="actions">
+  <div class="field span12">
+    <%= f.label :description %><br />
+    <%= f.text_area(:content, :size => "80x10") %>
+  </div>
+
+  <div class="well actions span12">
     <%= f.submit %>
   </div>
+
 <% end %>
+</div>
