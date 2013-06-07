@@ -14,6 +14,7 @@ Drfa::Application.routes.draw do
   root :to => 'pages#show', :id => '1'
   match '/help', to: 'pages#show', :id => '2'
   match '/contact', to: 'pages#show', :id => '3'
+  match '/requests', to: 'speaker_requests#index' 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

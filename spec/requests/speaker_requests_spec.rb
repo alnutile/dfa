@@ -61,15 +61,17 @@ describe "SpeakerRequests" do
  	end
         
         describe "Anonymous User can add post" do
-          before { visit speaker_requests_path }
-          it { should have_selector('h3', text: 'Speaker Requests') }
+          before { visit '/requests' }
+          #it { should have_selector('h3', text: 'Speaker Requests') }
           before do 
 	    click_link "Submit Request"
 	    fill_in "speaker_request_content", with: 'Please Speak...'
 	    # fill_in "Date", with: "xyz"
-            click_button "Create Speaker request"
+            fill_in "speaker_request_email", with: 'example@example.com'
+            fill_in "speaker_request_date", with: "2013-06-25 05:00"
+	    click_button "Create Speaker request"
           end
-	    
+	   #it { should have_selector('dd.date', text: '2013-06-19 08:24:00 UTC') } 
         end
  	# describe "Pager area" do
  	# 	it { should have_content('Next') }

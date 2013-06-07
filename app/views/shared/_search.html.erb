@@ -1,17 +1,32 @@
 <%= form_tag speaker_requests_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-  <p>
-  	State:
-  </p>
-  <%= link_to "Submit Request",
-        { :controller => 'speaker_requests', :action => "new" },
-	{ :id => "speaker-request",
-	  :class => "btn btn-large btn-warning", 
-          :type => "button"
-	}
-   %>
-    
+  <div class="well">  
+  <% unless request.path == '/requests' %>
+    <p>Search furture requests by month</p>
+  <% end %>
+   
+   <h5>Filter by Month</h5>
+   <ul class="unstyled">
+    <% (0..5).each do |i| %>
+    	<li> 
+	  <%= 
+	    @month = Date.today.beginning_of_month + i.months 
+	    if @month.to_s == params[:date_start]
+	      link_to "#{@month.strftime("%B")} (x)", {
+		:controller => 'speaker_requests',
+		:action => 'index',
+	      }
+	    else
+	      link_to "#{@month.strftime("%B")}", 
+	      {
+	        :controller => 'speaker_requests',
+	        :action     => 'index',
+	        :date_start => @month
+	      } 
+	    end
+	  %> 
+        </li>
+    <% end %>
+    </ul>
+  </div>
+  <%= render 'shared/button' %>
 <% end %>
