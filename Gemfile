@@ -5,6 +5,7 @@ gem 'acts-as-taggable-on'
 gem 'paperclip', "~> 3.0"
 gem 'will_paginate', '3.0.3'
 gem 'acts-as-taggable-on'
+gem 'honeypot-captcha'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'bcrypt-ruby', '3.0.1'

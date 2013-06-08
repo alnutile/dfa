@@ -4,10 +4,9 @@
 		<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 	</head>
 	<body>
-		<h1>New notification has been made</h1>
-                <p>New quest made checkout <%= link_to "Speaker Request",
-		    "http://#{@url}/admin/speaker_request/#{@speaker_request.id}" %> to set it
-		    as published.
+		<h1>New Speaker Request has been made</h1>
+                <p><%= link_to "Click Here",
+		    "http://#{@url}/admin/speaker_request/#{@speaker_request.id}" %> to set it and publish it if needed.
 		 </p>
 	</body>
 </html>
