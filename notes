@@ -1,0 +1,24 @@
+Tag search?
+State Search
+Use a calenadar?
+Validation
+Email working?
+
+
+Setup db and mail?
+looks like it is going out
+
+
+notes from alice
+
+Add contact info
+*(if different from the speaker)
+Then add contact email contact phone
+
+
+
+About the form layout
+I completely forgot about this form that I created at some point for DFA use only via ActionKit (our online action tools that do things that are way simpler than setting up a whole speaker bureau notification system). All it did was collect speaker requests. We didn't end up using it (which is why I forgot about it!), so it hasn't been field tested, but I wonder if we could borrow a couple of things from the page: http://act.drsforamerica.org/survey/event_request/#.UbF9sGRARQ8
+
+I like the layout/ordering of the "event location" fields and the looks of the date/time fields (with the calendar tool - I borrowed it from someone, can see in the source code!). I'm also thinking we should add a couple of the fields we don't have (size of audience, facilities provided, open to press).
+

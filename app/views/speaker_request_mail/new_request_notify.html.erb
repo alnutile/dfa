@@ -5,6 +5,9 @@
 	</head>
 	<body>
 		<h1>New notification has been made</h1>
-                <p>The url is coming soon..
+                <p>New quest made checkout <%= link_to "Speaker Request",
+		    "#{request.}admin/speaker_request/#{@speaker_request.id}" %> to set it
+		    as published.
+		 </p>
 	</body>
 </html>
