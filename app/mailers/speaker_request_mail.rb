@@ -6,6 +6,7 @@ class SpeakerRequestMail < ActionMailer::Base
   def new_request_notify(request)
     @id = request.id
     mail(to: "alfrednutile@gmail.com", subject: "New Request")
+    logger.info "Email Sent"
   end
 
 end
