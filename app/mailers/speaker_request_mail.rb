@@ -1,5 +1,5 @@
 class SpeakerRequestMail < ActionMailer::Base
-  default from: "admin@drfa.alfrednutile.info"
+  default from: "admin@pmserver.alfrednutile.info"
   default to: "alfrednutile@gmail.com"
   default cc: "alfrednutile@gmail.com"
 
