@@ -1,15 +1,17 @@
 class SpeakerRequestsController < InheritedResources::Base
   before_filter :authenticate_admin_user!, only: [:edit, :save]
   def index
+    @use_cache = true
     #unless read_fragment({}) || 
-    #if params.has_key?(:date_start)
-            search = params.fetch(:search, '')
+    if params.has_key?(:date_start) or read_fragment({}) == true
+            @use_cache = false
+	    search = params.fetch(:search, '')
 	    date_start = params.fetch(:date_start, Date.today.beginning_of_month)
 	    date_end = params.fetch(:date_end, Date.today.beginning_of_month + 1.months)
 	    page = params.fetch(:page, 1)
 	    @speaker_requests_upcoming = SpeakerRequest.published.content(search).date_range(date_start, date_end)
 	    @speaker_requests_upcoming = @speaker_requests_upcoming.paginate(page: params[:page], :order => "date ASC")
-    #end
+    end
   end
 
   def new
