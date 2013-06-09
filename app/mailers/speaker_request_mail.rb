@@ -1,7 +1,7 @@
 class SpeakerRequestMail < ActionMailer::Base
-  default from: "admin@drfa.alfrednutile.info"
+  default from: "admin@server.alfrednutile.info"
   default to: "alfrednutile@gmail.com"
-  default cc: "alfrednutile@gmail.com"
+  default cc: "atychen@gmail.com"
 
   def new_request_notify(speaker_request)
     #@id = request.id
