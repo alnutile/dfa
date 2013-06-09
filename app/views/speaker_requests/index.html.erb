@@ -1,7 +1,7 @@
 <div class="row-fluid">
 <h3>Speaker Requests</h3>
 <% if @use_cache == true %>
-	<% cache do %>
+	<% cache({:action => 'index'}, :expires_in => 24.hours) do %>
 	 <%= render :partial => 'search_area', :collection => @speaker_requests_upcoming %>
 	<% end %> 
 <% else %>
