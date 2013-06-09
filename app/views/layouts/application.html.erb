@@ -7,28 +7,28 @@
   <%= csrf_meta_tags unless @page_caching %>
 </head>
 <body>
-<div class="container-fluid">
+    <div class="container-fluid">
 	<%= render 'shared/topnav' %>
 	<div class="row-fluid content">
-	<div class="span2">
-	  <br/>
-	  <%= render 'shared/search' %>
-	</div>
+	  <div class="span2 sidebar">
+	    <br/>
+	    <%= render 'shared/search' %>
+	  </div>
 
-	<div class="span10">
-              <% unless @page_caching %>
-                <% flash.each do |key, value| %>
-  		  <%= content_tag(:div, value, class: "alert alert-#{key}") %>               
-		<% end %>
-	      <% end %>
-  		<%= yield %>
-		</div>
-	</div>
-	<hr />
-	<div class="row-fluid well">
-		<div class="span12">
-			<footer> Footer Area... </footer>
-		</div>
+	  <div class="span8 inner">
+                <% unless @page_caching %>
+                  <% flash.each do |key, value| %>
+  	  	    <%= content_tag(:div, value, class: "alert alert-#{key}") %>               
+		  <% end %>
+	        <% end %>
+  		  <%= yield %>
+	  </div>
+	</div><!--end content area-->
+	<div class="footer row-fluid span10">
+		<footer> Doctors for America 
+		  <a href="http://www.drsforamerica.org/">http://www.drsforamerica.org/</a> 
+		  | WebApp by <a href="http://alfrednutile.info">Alfred Nutile [Rails]</a>
+		</footer>
 	</div>
     </div>
   </body>

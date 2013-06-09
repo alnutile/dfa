@@ -1,0 +1,96 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+*= require jquery-ui/cupertino
+*= require_self
+*= require_tree .
+*/
+@import "bootstrap";
+@import "bootstrap-responsive";
+
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: #010135;
+}
+
+.navbar .brand, .navbar .nav li a {
+ color: white;
+ text-shadow: 0 0 0 white;
+}
+
+.row-fluid .span2.sidebar {
+ margin-left: 2%;
+}
+
+.inner {
+  padding-left: 2%;
+}
+
+.span8.inner h3 {
+  margin-left: 2%;
+}
+
+.navbar-inner {
+ background-image: url(<%= asset_path 'top_bar.png' %>);
+}
+
+.content {
+ background: url(<%= asset_path 'content-inner-background.png' %>) top left repeat-y;
+}
+
+table {
+  background-color: white;
+}
+
+textarea {
+  width: 100%;
+}
+
+.content {
+  margin-top: 42px;
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+
+.row-fluid.content {
+  padding-bottom: 100px;
+}
+
+h1, h2, h3 {
+text-shadow: 1px 1px 0px white;
+}
+
+a.btn:visited {
+ color: white;
+}
+
+footer {
+ color: white;
+}
+
+
+@import "pages";
+@import "jquery-ui-timepicker-addon";
