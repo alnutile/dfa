@@ -1,5 +1,6 @@
 class SpeakerRequestsController < InheritedResources::Base
   before_filter :authenticate_admin_user!, only: [:edit, :save]
+  cache_sweeper :page_sweeper
   def index
     @use_cache = true
     #unless read_fragment({}) || 
