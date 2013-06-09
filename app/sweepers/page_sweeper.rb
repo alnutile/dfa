@@ -3,6 +3,7 @@ class PageSweeper < ActionController::Caching::Sweeper
   observe Page
 
   def sweep(page)
+
       expire_page pages_path
       expire_page page_path(page)
       expire_page "/index.html"

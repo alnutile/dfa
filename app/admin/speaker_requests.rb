@@ -4,7 +4,6 @@ ActiveAdmin.register SpeakerRequest do
     cache_sweeper :speaker_request_sweeper
   end
 
-
 	index do
 		column :id, :label => "#"
 	    column :date

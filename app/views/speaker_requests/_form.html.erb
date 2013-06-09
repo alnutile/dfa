@@ -14,11 +14,19 @@
 
 
   <div class="field">
-    <%= f.label :date %><br />
+    <div>
+      <h4>Date</h4>
+    </div>
+  
     <%= f.datetime_picker("date", :minDate => 1, :dateFormat => "yy-mm-dd") %>
   </div>
+
+  <div>
+    <h4>Miscellaneous info</h4>
+  </div>
+
   <label class="checkbox">
-    <%= check_box_tag(:public) %>
+    <%= f.check_box :public %>
     <%= label_tag(:public, "Is this event Public?") %>
   </label>
   
@@ -43,6 +51,16 @@
     </div>
   </div>
   <div class="control-group">	
+    <div>
+      <h4>Location Info</h4>
+    </div>
+  
+  <label class="checkbox">
+    <%= f.check_box :online %>
+    <%= label_tag(:online, "Is this event Online?") %>
+    <p class="muted">if online use the Description box below for more info.</p>
+  </label>
+    <h4> -- or -- </h4>
     <label class="control-label" for="location-name">
       <%= label_tag(:location_name, "Location Name") %>
     </label>
@@ -95,10 +113,12 @@
       <%= label_tag(:website, "Website") %>
     </label>
     <div class="controls">
+     <h4>If online what is the website?</h4>
      <%= f.text_field :website %>
     </div>
   </div>
   <div class="control-group">	
+    <div><h4>Contact Info</h4><p class="muted">If differs from the Speaker?</p></div>
     <label class="control-label" for="contact-person">
       <%= label_tag(:contact_person, "Contact Person") %>
     </label>
@@ -124,7 +144,7 @@
   </div>
 
   <div class="field span8">
-    <%= f.label :description %><br />
+    <h4>Event Description or notes</h4>
     <%= f.text_area(:content, :size => "80x10") %>
   </div>
 
