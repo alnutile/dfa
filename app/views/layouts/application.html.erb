@@ -4,7 +4,7 @@
   <title>Doctors for America - Speakers Bureau</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tags unless @page_caching %>
 </head>
 <body>
 <div class="container-fluid">
@@ -16,9 +16,11 @@
 	</div>
 
 	<div class="span10">
-		<% flash.each do |key, value| %>
+              <% unless @page_caching %>
+                <% flash.each do |key, value| %>
   		  <%= content_tag(:div, value, class: "alert alert-#{key}") %>               
 		<% end %>
+	      <% end %>
   		<%= yield %>
 		</div>
 	</div>

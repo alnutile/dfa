@@ -1,15 +1,14 @@
 Drfa::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   resources :speaker_requests
 
-
   resources :speakers
-
 
   resources :pages
 
   ActiveAdmin.routes(self)
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
 
   root :to => 'pages#show', :id => '1'
   match '/help', to: 'pages#show', :id => '2'

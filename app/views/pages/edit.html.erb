@@ -1,0 +1,25 @@
+<div class="span8 well">
+<%= form_for @page do |f| %>
+
+  <div class="control-group">	
+    <label class="control-label" for="title">
+      <%= f.label :title %>
+    </label>
+    <div class="controls">
+     <%= f.text_field :title %>
+    </div>
+  </div>
+  <div class="control-group">	
+    <label class="control-label" for="content">
+      <%= f.label :content %>
+    </label>
+    <div class="controls">
+     <%= f.text_area :content %>
+    </div>
+  </div>
+
+  <div class="well actions span12">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
