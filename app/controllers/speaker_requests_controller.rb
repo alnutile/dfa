@@ -11,9 +11,12 @@ class SpeakerRequestsController < InheritedResources::Base
 	    date_start = params.fetch(:date_start, Date.today.beginning_of_month)
 	    date_end = params.fetch(:date_end, Date.today.beginning_of_month + 1.months)
 	    page = params.fetch(:page, 1)
-	    @speaker_requests_upcoming = SpeakerRequest.published.content(search).date_range(date_start, date_end)
+	    if params.has_key?(:state)
+	      @speaker_requests_upcoming = SpeakerRequest.published.content(search).date_range(date_start, date_end).tagged_with(params[:state])
+	    else
+	      @speaker_requests_upcoming = SpeakerRequest.published.content(search).date_range(date_start, date_end)
+	    end
 	    @speaker_requests_upcoming = @speaker_requests_upcoming.paginate(page: params[:page], :order => "date ASC", :per_page => 20)
-    #end
   end
 
   def new

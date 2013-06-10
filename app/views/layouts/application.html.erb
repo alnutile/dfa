@@ -12,9 +12,12 @@
 	<div class="row-fluid content">
 	  <div class="span2 sidebar">
 	    <br/>
+            <div class="button-add">
+	      <%= render 'shared/button' %>
+	    </div>
 	    <%= render 'shared/search' %>
 	    <%= render 'shared/states' %>
-	  </div>
+         </div>
 
 	  <div class="span8 inner">
                 <% unless @page_caching %>

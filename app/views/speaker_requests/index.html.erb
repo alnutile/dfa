@@ -14,9 +14,10 @@
       <tr>
         <td class="title"><%= link_to "View", speaker_request_path(speaker_request.id) %></td>
         <td class="date">
-          <%= speaker_request.date.strftime("%A") %>,   
-          <%= speaker_request.date.strftime("%m/%d/%Y") %>
-          @ <%= speaker_request.date.strftime("%I:%M %p %Z") %>
+          <strong>Date:</strong><%= speaker_request.date.strftime("%A") %>   
+          <%= speaker_request.date.strftime("%b %e, %Y") %>
+          </br>
+	  <strong>Time:</strong><%= speaker_request.date.strftime("%l:%M %p %Z") %>
         </td>
         <td class="tags"><%= speaker_request.tag_list %></td>
         <td class="public"><%= speaker_request.public ? 'Yes' : 'No'%></td>
