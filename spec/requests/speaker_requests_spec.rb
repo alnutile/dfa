@@ -26,7 +26,8 @@ describe "SpeakerRequests" do
  		end
 
  		it "should list each request" do
-			SpeakerRequest.all.each do |sr|
+		  it { should have_selector('div.pagination') }
+		  SpeakerRequest.all.each do |sr|
 				should have_link('View', { :href => "/speaker_requests/#{sr.id}" }) if sr.id < 20
 			end
 		end	
