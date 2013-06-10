@@ -28,6 +28,7 @@ class SpeakerRequestsController < InheritedResources::Base
   end
 
   def create
+    #logger.info "created #{params[:speaker_request].to_a}"
     @speaker_request = SpeakerRequest.new(params[:speaker_request])
     if @speaker_request.save
       flash[:success] = "Thanks for making the request. We will get back to you shortly"
