@@ -19,7 +19,7 @@
 	    <%= render 'shared/states' %>
          </div>
 
-	  <div class="span7 inner">
+	  <div class="span8 inner">
                 <% unless @page_caching %>
                   <% flash.each do |key, value| %>
   	  	    <%= content_tag(:div, value, class: "alert alert-#{key}") %>               
