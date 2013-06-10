@@ -1,25 +1,31 @@
-Tag search?
-State Search
+DONE Tag search?
+DONE State Search
 Use a calenadar?
 Validation
 DONE Email working?
-Put Email live as needed
---can I have a dev and live default?
+DEV Put Email live as needed
+DEV --can I have a dev and live default?
 Better time picker
 DONE Honey post tests
 Google anlaytics
+No page cache since the blocks update 
+  need to turn that into fragment as well?
 
+DONE Alice cc on email
 DONE Setup db and mail?
 DONE looks like it is going out
 multiple people
 DONE captcha
 
+
+Get Client feedback on email notice
+
+
 notes from alice
 
-Add contact info
-*(if different from the speaker)
-Then add contact email contact phone
-
+DONE Add contact info
+DONE *(if different from the speaker)
+DONE Then add contact email contact phone
 
 
 About the form layout
