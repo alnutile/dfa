@@ -7,10 +7,10 @@
   <%= csrf_meta_tags unless @page_caching %>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-narrow">
 	<%= render 'shared/topnav' %>
 	<div class="row-fluid content">
-	  <div class="span2 sidebar">
+	  <div class="span3 sidebar">
 	    <br/>
             <div class="button-add">
 	      <%= render 'shared/button' %>
@@ -19,7 +19,7 @@
 	    <%= render 'shared/states' %>
          </div>
 
-	  <div class="span8 inner">
+	  <div class="span9 inner">
                 <% unless @page_caching %>
                   <% flash.each do |key, value| %>
   	  	    <%= content_tag(:div, value, class: "alert alert-#{key}") %>               
