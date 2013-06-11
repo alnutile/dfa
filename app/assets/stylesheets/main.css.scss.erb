@@ -13,6 +13,7 @@ $grayMediumLight: #eaeaea;
 
 body {
   background-color: #010135;
+  padding-top: 3%;
 }
 
 .navbar .brand, .navbar .nav li a {
@@ -33,7 +34,7 @@ body {
 }
 
 .navbar-inner {
- background-image: url(<%= asset_path 'top_bar.png' %>);
+ background-image: url(<%= asset_path 'top_bar.png' %>) !important;
 }
 
 .content {
@@ -48,7 +49,6 @@ textarea {
 }
 
 .content {
-  margin-top: 42px;
 }
 
 .debug_dump {
@@ -86,9 +86,17 @@ footer {
 }
 
 .nav-collapse {
- background-color: rgb(170, 170, 170);
 }
+ 
+@media (max-width: 979px) {
+   .navbar-fixed-top {
+     margin-bottom: 0px !important;
+    }
+   body {
+    padding-top: 0;
+   } 
 
 
+ }
 @import "pages";
 @import "jquery-ui-timepicker-addon";

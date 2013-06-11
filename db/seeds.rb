@@ -9,3 +9,6 @@ AdminUser.create!(:email => 'admin@example.com', :password => 'password', :passw
 Page.create!(:title => "Home", :content => "Coming Soon...")
 Page.create!(:title => "Help", :content => "Coming Soon...")
 Page.create!(:title => "Contact", :content => "Coming Soon...")
+1..20.each do 
+ SpeakerRequest.create!(:date=>Time.now + 1.day, :description=>"Lorem")
+end

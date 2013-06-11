@@ -4,16 +4,14 @@ FactoryGirl.define do
   end
 
   factory :speaker_request do
-    dateNow = "2013-07-01 11:08:07.217949"
     sequence(:speaker_id) { |n| n } 
-    sequence(:date) { |n| dateNow }
-    sequence(:tag_list) { |n| "Tag #{n}" }
-    sequence(:city_list) { |n| "City #{n}" }
-    sequence(:state_list) { |n| "State #{n}" }
-    sequence(:location_street) { |n| "Street #{n}" }
-    
+    sequence(:date) { |n| Time.now + 1.day } 
+    #sequence(:tag_list) { |n| "Tag #{n}" }
+    #sequence(:city_list) { |n| "City #{n}" }
+    #sequence(:state) { |n| "State #{n}" }
+    #sequence(:location_street) { |n| "Street #{n}" }
+    #public 1
     content 'Coming Soon...' 
-    public 1
     cme_ceu 1
     train_trainer 1
   end

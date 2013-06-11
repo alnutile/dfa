@@ -2,11 +2,13 @@
 	<h5>Filter by State</h5>
 
 	<ul>
-	<% states_list.each do |state| %>
+	<%  
+	    states_list.each do |state| %>
 	  <li>
 	    <%= link_to state.name, {:state => state.name} %>
 	  </li>
-	<% end %>
+	<%  end 
+	%>
 
 	</ul>
 </div>

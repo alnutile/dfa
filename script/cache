@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh a2hostingDeploy "cd /var/www/dfa/current/public && rm index.html contact.html pages/1.html" 
