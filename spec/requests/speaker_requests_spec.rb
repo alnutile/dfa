@@ -49,8 +49,14 @@ describe "SP Search page" do
       expect { click_button "Create Speaker request" }.to change(SpeakerRequest, :count).by(1)
       should have_selector('div.alert', text: 'Thanks for making the request. We will get back to you shortly') 
     end
-    
 
+    it "Should send an email" do
+      assert !ActionMailer::Base.deliveries.empty?
+      email = ActionMailer::Base.deliveries.last
+      last =  SpeakerRequest.last
+      assert_equal "New Request", email.subject
+      ActionMailer::Base.deliveries = []
+    end
   end
 
 end
