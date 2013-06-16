@@ -15,7 +15,7 @@ ActiveAdmin.register SpeakerRequest do
    		f.inputs "Details" do
 	   		f.input :content, :hint => "Description of the event"
 	   		f.input :date
-	   		f.input :request_speaker, :as => :select, :collection => Speaker.all,
+	   		f.input :speakers, :as => :select, :collection => Speaker.all,
                :input_html => { :multiple => true } 
 			f.input :published, :label => "Show on the website."
 			f.input :public, :label => "Is this event open to the public?"
