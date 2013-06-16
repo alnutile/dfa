@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605234203) do
+ActiveRecord::Schema.define(:version => 20130616013211) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -53,10 +53,20 @@ ActiveRecord::Schema.define(:version => 20130605234203) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "request_speakers", :force => true do |t|
+    t.integer  "speaker_id"
+    t.integer  "speaker_request_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "request_speakers", ["speaker_id", "speaker_request_id"], :name => "index_request_speakers_on_speaker_id_and_request_id", :unique => true
+  add_index "request_speakers", ["speaker_id"], :name => "index_request_speakers_on_speaker_id"
+  add_index "request_speakers", ["speaker_request_id"], :name => "index_request_speakers_on_request_id"
+
   create_table "speaker_requests", :force => true do |t|
     t.text     "content"
     t.datetime "date"
-    t.integer  "speaker_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.boolean  "train_trainer",       :default => false

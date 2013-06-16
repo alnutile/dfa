@@ -7,19 +7,35 @@
     <dl class="dl-horizontal">
       
       <dt>Date</dt>
-      <dd class="date"><%= @speaker_request.date %></dd>
+      <dd class="date">
+       <%= @speaker_request.date ||= "No Date" %></dd>
 
       <dt>Audience</dt>
-      <dd><%= @speaker_request.tag_list %></dd>
+      <dd>
+      <% 
+      if @speaker_request.tag_list.empty? == true %>
+        None set
+      <% else %>
+       <%= puts @speaker_request.tag_list %>
+      <% end %>
+      </dd>
       
       <dt>Speaker</dt>
       <dd>
-          <%= simple_format speakerName(@speaker_request) %>
+      <% if @speaker_request.speakers %>
+         Yes
+      <% else %>
+         No
+      <% end %>
       </dd>
 
       <dt>Location</dt>
       <dd> 
-        <%= simple_format @speaker_request.location_name %>
+        <% if @speaker_request.location_name.empty? == true  %>
+          None set
+        <% else %>
+          <%= @speaker_request.location_name %>
+        <% end %>
       </dd>
 
       <dt>Online</dt>
@@ -33,12 +49,12 @@
       <dt>Open to Public</dt>
       <dd><%= @speaker_request.public ? 'Yes' : 'No' %></dd>  
 
-      <dt>Event needs to be certified for CME or CEU credits</dt>
+      <dt>CME or CEU*</dt>
       <dd>
         <%= @speaker_request.cme_ceu ? 'Yes' : 'No' %>
       </dd>
 
-      </br><em>Event needs to be certified for CME or CEU credits</em>
+      </br><em>*Event needs to be certified for CME or CEU credits</em>
       
       <hr>
       <dt>Description</dt>
@@ -47,17 +63,16 @@
     </dl>
   </span>
   <span class="span4">
-    <h4>Speaker</h4>
-    <% if @speaker_request.speaker %>
+    <h4>Speakers</h4>
+    <% @speaker_request.speakers.each do |s| %>
         <dt>First Name</dt>
-        <dd><%= @speaker_request.speaker.firstname %></dd>
+        <dd><%= s.firstname %></dd>
         <dt>Last Name</dt>
-        <dd><%= @speaker_request.speaker.lastname %></dd>
+        <dd><%= s.lastname %></dd>
         <dt>Related Org</dt>
-        <dd><%= @speaker_request.speaker.relatedorg %></dd>
-        <dt>Tags</dt>
-        <dd><%= @speaker_request.speaker.speakertag_list %></dd>
-    <% end %>
+        <dd><%= s.relatedorg %></dd>
+        <hr/>
+      <% end %>
   </span>
 </span>
 
