@@ -1,8 +1,8 @@
 FactoryGirl.define do
   
   factory :speaker do
-    firstname "Test"
-    lastname "Test"
+    firstname "Test First"
+    lastname "Test Last"
     email "text@example.com"
     relatedorg "Test Related Org"
   end
@@ -12,17 +12,21 @@ FactoryGirl.define do
     sequence(:date) { |n| date_now } 
     #sequence(:tag_list) { |n| "Tag #{n}" }
     #sequence(:city_list) { |n| "City #{n}" }
-    #sequence(:state) { |n| "State #{n}" }
+    sequence(:state_list) { |n| "State #{n}" }
     #sequence(:location_street) { |n| "Street #{n}" }
     #public 1
     published 1
     content 'Coming Soon...' 
     cme_ceu 1
     train_trainer 1
+ 
+    after(:create) do |a|
+      speaker = FactoryGirl.create(:speaker)
+      request_speaker = FactoryGirl.create(:request_speaker, speaker_id: speaker.id, 
+          speaker_request_id: a.id)
+    end
   end
 
   factory :request_speaker do
-    sequence(:speaker_request_id) { |n| n+1 }
-    sequence(:speaker_id) { |n| n+1 }
   end
 end

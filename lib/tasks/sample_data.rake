@@ -18,7 +18,8 @@ namespace :db do
       date = Time.now + n.days
       SpeakerRequest.create!(content: description,
                             date: date,
-                            published: 1)
+                            published: 1,
+                            state: "State #{n+1}")
     end
   end
 

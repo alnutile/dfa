@@ -3,6 +3,17 @@ require 'spec_helper'
 describe "SP Search page" do
 
   subject { page }
+       
+    before(:all) do
+     #31.times { FactoryGirl.create(:speaker) }
+     31.times { FactoryGirl.create(:speaker_request) }
+     #31.times { FactoryGirl.create(:request_speaker) }
+    end
+    after(:all) do
+      Speaker.delete_all
+      SpeakerRequest.delete_all
+      RequestSpeaker.delete_all
+    end
 
  describe "Results" do
      let(:speaker_request) { FactoryGirl.create(:speaker_request) }
@@ -18,12 +29,10 @@ describe "SP Search page" do
  
      describe "pagination" do
        before(:each) do
-         31.times { FactoryGirl.create(:speaker) }
-         31.times { FactoryGirl.create(:speaker_request) }
-         31.times { FactoryGirl.create(:request_speaker) }
          visit '/requests'
        end
-       it { should have_content('Speaker 1') }       
+
+       it { should have_content('Test First') }       
        it { should have_content('Time') }
      end
  
