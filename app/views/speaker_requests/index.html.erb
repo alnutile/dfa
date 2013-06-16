@@ -21,7 +21,16 @@
         </td>
         <td class="tags"><%= speaker_request.tag_list %></td>
         <td class="public"><%= speaker_request.public ? 'Yes' : 'No'%></td>
-        <td class="speaker"><%= simple_format speakerName(speaker_request) %></td>
+        <td class="speaker">
+          <% if speaker_request.speakers.empty? == true %>
+            No Speaker Yet <%= speaker_request.speakers.empty? %>
+          <% else %>
+            <% speaker_request.speakers.each do |s| %>
+              <%= "#{s.lastname}," unless s.lastname.nil? %>
+              <%= "#{s.firstname}" %>
+            <% end %>
+          <% end %>
+        </td>
         <td class="location">
           <% speaker_request.city.each do |c| %>
             <%= c.name %>, 

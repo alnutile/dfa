@@ -31,7 +31,7 @@
 
       <dt>Location</dt>
       <dd> 
-        <% if @speaker_request.location_name.empty? == true  %>
+        <% if @speaker_request.location_name.nil?  %>
           None set
         <% else %>
           <%= @speaker_request.location_name %>
