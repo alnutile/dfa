@@ -20,4 +20,9 @@ FactoryGirl.define do
     cme_ceu 1
     train_trainer 1
   end
+
+  factory :request_speaker do
+    sequence(:speaker_request_id) { |n| n+1 }
+    sequence(:speaker_id) { |n| n+1 }
+  end
 end

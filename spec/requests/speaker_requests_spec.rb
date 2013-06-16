@@ -20,6 +20,7 @@ describe "SP Search page" do
        before(:each) do
          31.times { FactoryGirl.create(:speaker) }
          31.times { FactoryGirl.create(:speaker_request) }
+         31.times { FactoryGirl.create(:request_speaker) }
          visit '/requests'
        end
        it { should have_content('Speaker 1') }       

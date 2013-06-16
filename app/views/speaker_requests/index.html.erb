@@ -23,7 +23,7 @@
         <td class="public"><%= speaker_request.public ? 'Yes' : 'No'%></td>
         <td class="speaker">
           <% if speaker_request.speakers.empty? == true %>
-            No Speaker Yet <%= speaker_request.speakers.empty? %>
+            No Speaker Yet 
           <% else %>
             <% speaker_request.speakers.each do |s| %>
               <%= "#{s.lastname}," unless s.lastname.nil? %>
