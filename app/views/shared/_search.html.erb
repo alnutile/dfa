@@ -19,8 +19,8 @@
 	      link_to "#{@month.strftime("%B")}", 
 	      {
 	        :controller => 'speaker_requests',
-	        :action     => 'index',
-	        :date_start => @month
+	        :action     => 'calendar',
+	        :date => @month
 	      } 
 	    end
 	  %> 
@@ -28,4 +28,5 @@
     <% end %>
     </ul>
   </div>
+  <%= render 'shared/button' %>
 <% end %>

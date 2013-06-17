@@ -33,6 +33,7 @@ describe "SP Search page" do
        end
 
        it { should have_content('Test First') }       
+       it { should have_content('Tag 2') }
        it { should have_content('Time') }
      end
  
@@ -50,6 +51,7 @@ describe "SP Search page" do
     #write the form test
     before do
      click_link "Submit Request"
+     fill_in "speaker_request_title", with: "Test Capy"
      fill_in "speaker_request_date", with: Time.now + 1.day
      fill_in "speaker_request_state_list", with: "Capy"
     end 
