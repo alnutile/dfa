@@ -1,0 +1,19 @@
+<h1>Requests</h1>
+
+<div id="requests">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+      <%= date.day %>
+      <% if @requests_by_date[date.to_s] %>
+      <ul>
+        <% @requests_by_date[date.to_s].each do |request| %>
+          <li><%= link_to request.title ||= "No Title", request %></li>
+        <% end %>
+      </ul>
+  <% end %>
+  <% end %>
+</div>

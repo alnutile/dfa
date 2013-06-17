@@ -6,14 +6,17 @@ ActiveAdmin.register SpeakerRequest do
 
 	index do
 		column :id, :label => "#"
+	    column :published, :label => "Published"
+        column :title
 	    column :date
-	    column :tag_list
+        column :requesting_org
 	    default_actions
   	end
 
    form do |f|
    		f.inputs "Details" do
-	   		f.input :content, :hint => "Description of the event"
+	   		f.input :title
+            f.input :content, :hint => "Description of the event"
 	   		f.input :date
 	   		f.input :speakers, :as => :select, :collection => Speaker.all,
                :input_html => { :multiple => true } 

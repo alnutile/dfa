@@ -19,7 +19,8 @@ namespace :db do
       SpeakerRequest.create!(content: description,
                             date: date,
                             published: 1,
-                            state: "State #{n+1}")
+                            state_list: "State #{n+1}",
+                            tag_list: "Tag #{n+1}")
     end
   end
 

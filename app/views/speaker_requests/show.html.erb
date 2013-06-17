@@ -5,7 +5,10 @@
 <span class="row">
   <span class="span6">
     <dl class="dl-horizontal">
-      
+      <dt>Title</dt>
+      <dd class="title">
+        <%= @speaker_request.title ||= "No Title" %>
+      </dd>
       <dt>Date</dt>
       <dd class="date">
        <%= @speaker_request.date ||= "No Date" %></dd>
