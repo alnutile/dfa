@@ -33,18 +33,12 @@ describe "SP Search page" do
        end
 
        it { should have_content('Test First') }       
-       it { should have_content('Tag 2') }
+       it { should have_content('Tag 32') }
        it { should have_content('Time') }
      end
  
    end
  
-  describe "Calendar View" do
-    before(:each) do 
-      visit '/calendar'
-    end
-    it { should have_content('Test First') }
-  end
 
   describe "Submit Request" do
     before do

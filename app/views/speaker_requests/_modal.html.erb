@@ -1,0 +1,80 @@
+  <span>
+    <dl class="dl-horizontal">
+      <dt>Title</dt>
+      <dd class="title">
+        <%= request.title ||= "No Title" %>
+      </dd>
+      <dt>Date</dt>
+      <dd class="date">
+       <% if request.date.nil? %>
+        "No Date"
+         <% else %>
+         <%= request.date.strftime("%b %e, %Y %l:%M %p %Z") %>
+         <% end %>
+       </dd>
+
+      <dt>Audience</dt>
+      <dd>
+      <% 
+      if request.tag_list.empty? == true %>
+        None set
+      <% else %>
+       <%= puts request.tag_list %>
+      <% end %>
+      </dd>
+      
+      <dt>Speaker</dt>
+      <dd>
+      <% if request.speakers %>
+         Yes
+      <% else %>
+         No
+      <% end %>
+      </dd>
+
+      <dt>Location</dt>
+      <dd> 
+        <% if request.location_name.nil?  %>
+          None set
+        <% else %>
+          <%= request.location_name %>
+        <% end %>
+      </dd>
+
+      <dt>Online</dt>
+      <dd> 
+        <%= simple_format request.online ? 'Yes' : 'No' %>
+      </dd>
+
+      <dt>Train the Trainer Event</dt>
+      <dd><%= request.train_trainer ? 'Yes' : 'No' %></dd>
+     
+      <dt>Open to Public</dt>
+      <dd><%= request.public ? 'Yes' : 'No' %></dd>  
+
+      <dt>CME or CEU*</dt>
+      <dd>
+        <%= request.cme_ceu ? 'Yes' : 'No' %>
+      </dd>
+
+      </br><em>*Event needs to be certified for CME or CEU credits</em>
+      
+      <hr>
+      <dt>Description</dt>
+      <dd><%= request.content %></dd> 
+
+    </dl>
+  </span>
+  <span>
+    <h4>Speakers</h4>
+    <% request.speakers.each do |s| %>
+        <dt>First Name</dt>
+        <dd><%= s.firstname %></dd>
+        <dt>Last Name</dt>
+        <dd><%= s.lastname %></dd>
+        <dt>Related Org</dt>
+        <dd><%= s.relatedorg %></dd>
+        <hr/>
+      <% end %>
+  </span>
+

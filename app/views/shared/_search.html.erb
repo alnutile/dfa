@@ -12,15 +12,15 @@
 	    @month = Date.today.beginning_of_month + i.months 
 	    if @month.to_s == params[:date_start]
 	      link_to "#{@month.strftime("%B")} (x)", {
-		:controller => 'speaker_requests',
-		:action => 'index',
+		  :controller => 'speaker_requests',
+		  :action => 'calendar',
 	      }
 	    else
 	      link_to "#{@month.strftime("%B")}", 
 	      {
 	        :controller => 'speaker_requests',
-	        :action     => 'index',
-	        :date_start => @month
+	        :action     => 'calendar',
+	        :date => @month
 	      } 
 	    end
 	  %> 

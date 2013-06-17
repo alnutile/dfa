@@ -22,8 +22,6 @@ class SpeakerRequestsController < InheritedResources::Base
   def calendar
     @requests = SpeakerRequest.all
     @requests_by_date = @requests.group_by { |r| r.date.strftime("%Y-%m-%d") } 
-    #2013-06-16
-    logger.info "LoggerDate #{@requests_by_date.to_s}"
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
