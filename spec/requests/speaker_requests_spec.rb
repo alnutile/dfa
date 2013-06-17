@@ -39,6 +39,13 @@ describe "SP Search page" do
  
    end
  
+  describe "Calendar View" do
+    before(:each) do 
+      visit '/calendar'
+    end
+    it { should have_content('Test First') }
+  end
+
   describe "Submit Request" do
     before do
       visit speaker_requests_path

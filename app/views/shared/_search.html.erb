@@ -1,6 +1,6 @@
 <%= form_tag speaker_requests_path, :method => 'get' do %>
   <div class="well">  
-  <% unless request.path == '/requests' %>
+  <% unless request.path == '/calendar' %>
     <h4>Search future requests by month</h4>
   <% end %>
    
@@ -19,8 +19,8 @@
 	      link_to "#{@month.strftime("%B")}", 
 	      {
 	        :controller => 'speaker_requests',
-	        :action     => 'calendar',
-	        :date => @month
+	        :action     => 'index',
+	        :date_start => @month
 	      } 
 	    end
 	  %> 
