@@ -21,9 +21,9 @@ class SpeakerRequestsController < InheritedResources::Base
 
   def calendar
     if params.has_key?(:state) 
-     @requests = SpeakerRequest.published.tagged_with(params[:state])
+     @requests = SpeakerRequest.published.has_date.tagged_with(params[:state])
     else 
-     @requests = SpeakerRequest.published
+     @requests = SpeakerRequest.published.has_date
     end 
     @requests_by_date = @requests.group_by { |r| r.date.strftime("%Y-%m-%d") } 
     @date = params[:date] ? Date.parse(params[:date]) : Date.today

@@ -13,12 +13,12 @@ $('document').ready(function() {
      search = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
    }
 
-   console.log(window.location);
+   console.log(search);
    $('select#state').on('change', function() {
      $("select#state option:selected").each(function(){
        var selected = $(this).text();
        var loca = window.location.href;
-       if( "date" in search) {
+       if( search.hasOwnProperty('date') ) {
           params = '&state='+selected;
        } else {
           params = '?state='+selected;
