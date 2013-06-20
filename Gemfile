@@ -20,6 +20,7 @@ gem 'therubyracer'
 gem 'rvm-capistrano'
 gem 'activeadmin'
 
+
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'guard-rspec'

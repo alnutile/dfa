@@ -10,6 +10,7 @@ class SpeakerRequest < ActiveRecord::Base
   # validate :incorrect_date, :on => :create
 
   scope :published, -> { where published: true }
+  #scope :has_date, -> { where ["date NOT LIKE ?", ""]}
   scope :content, ->(searched) { where(["content LIKE ?", "%#{searched}%"]) }
   scope :date_range, ->(start_date, end_date) {
     where("date between ? and ?", start_date, end_date)

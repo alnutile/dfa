@@ -31,7 +31,7 @@ ActiveAdmin.register SpeakerRequest do
 
 	   	end
 	   	f.inputs "Location: Online" do
-	   		f.input :online, :label => "Is it Online?", :hint => " Else fill in below"
+	   		f.input :online, :label => "Online or a Conference Call", :hint => " Else fill in below"
 
 	   	end
 
