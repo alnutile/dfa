@@ -2,14 +2,25 @@ ActiveAdmin.register SpeakerRequest do
 
   controller do
     cache_sweeper :speaker_request_sweeper
+    def resource 
+    	SpeakerRequest.all("ORDER BY date ASC")
+    end
   end
 
 	index do
-		column :id, :label => "#"
-	    column :published, :label => "Published"
-        column :title
-	    column :date
-        column :requesting_org
+		#Can we just reorder the columns to have first name, last name, contact person, email, phone, org, added date?
+		column :contact_person, :label => "Contact"
+		column :email
+		column :phone
+		column :requesting_org
+	    column :published do |p|
+	    	p.published.to_s == 'true' ? 'Yes' : 'No'
+ 	    end
+	    column :date, :label => "Date of"
+	    column :created_at, :label => "Created"
+ 		column :state do |s|
+ 			s.state_list
+ 		end
 	    default_actions
   	end
 
@@ -41,7 +52,8 @@ ActiveAdmin.register SpeakerRequest do
 	   		f.input :location_street_two, :label => "Second Part of Address"
 	   		f.input :location_zip
 	   		f.input :city_list, :label => "City"
-	   		f.input :state_list, :label => "State"
+	   		f.input :state_list, :label => "State", :as => :select, 
+	   		    :collection => us_states.collect{ |u| [u[0], u[0]] }
 	   		f.input :requesting_org
 	   		f.input :website, :hint => "full URL htt://google.com"
 	   		f.input :contact_person
