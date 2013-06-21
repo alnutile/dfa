@@ -2,9 +2,7 @@ ActiveAdmin.register SpeakerRequest do
 
   controller do
     cache_sweeper :speaker_request_sweeper
-    def resource 
-    	SpeakerRequest.all("ORDER BY date ASC")
-    end
+
   end
 
 	index do
@@ -57,8 +55,8 @@ ActiveAdmin.register SpeakerRequest do
 	   		f.input :requesting_org
 	   		f.input :website, :hint => "full URL htt://google.com"
 	   		f.input :contact_person
-	   		f.input :phone
 	   		f.input :email
+	   		f.input :phone
 	   	end
 
    		f.actions
