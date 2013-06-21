@@ -7,15 +7,15 @@ ActiveAdmin.register SpeakerRequest do
 
 	index do
 		#Can we just reorder the columns to have first name, last name, contact person, email, phone, org, added date?
-		column :contact_person, :label => "Contact"
+		column "Contact", :contact_person
 		column :email
 		column :phone
 		column :requesting_org
 	    column :published do |p|
 	    	p.published.to_s == 'true' ? 'Yes' : 'No'
  	    end
-	    column :date, :label => "Date of"
-	    column :created_at, :label => "Created"
+	    column "Date of", :date
+	    column "Created", :created_at
  		column :state do |s|
  			s.state_list
  		end
