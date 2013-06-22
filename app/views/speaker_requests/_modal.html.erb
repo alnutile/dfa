@@ -22,19 +22,21 @@
        <%= request.tag_list.to_s %>
       <% end %>
       </dd>
-      
-      <dt>Speaker</dt>
-      <dd>
+      <dt>Speakers</dt>
       <% if request.speakers %>
-         Yes
+         <dd>
+          <% request.speakers.each do |s| %>
+              <%= s.firstname %> <%= s.lastname %> 
+              <% if s.relatedorg %>, from <%= s.relatedorg %> <% end %>
+              </br>
+            <% end %>
+        </dd>        
       <% else %>
-         No
+         No Speaker
       <% end %>
-      </dd>
-
       <dt>Location</dt>
       <dd> 
-        <% if request.location_name.nil?  %>
+        <% if request.location_name.blank?  %>
           None set
         <% else %>
           <%= request.location_name %>
@@ -42,8 +44,9 @@
       </dd>
       
       <dt>State</dt>
+
       <dd> 
-        <% if request.state_list.nil?  %>
+        <% if request.state_list.blank?  %>
           None set
         <% else %>
           <%= request.state_list.to_s %>
@@ -74,16 +77,5 @@
 
     </dl>
   </span>
-  <span>
-    <h4>Speakers</h4>
-    <% request.speakers.each do |s| %>
-        <dt>First Name</dt>
-        <dd><%= s.firstname %></dd>
-        <dt>Last Name</dt>
-        <dd><%= s.lastname %></dd>
-        <dt>Related Org</dt>
-        <dd><%= s.relatedorg %></dd>
-        <hr/>
-      <% end %>
-  </span>
+
 
