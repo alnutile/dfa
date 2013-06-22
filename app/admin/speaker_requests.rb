@@ -29,6 +29,7 @@ ActiveAdmin.register SpeakerRequest do
 	   		f.input :date
 	   		f.input :speakers, :as => :select, :collection => Speaker.all,
                :input_html => { :multiple => true } 
+            # create speaker 
 			f.input :published, :label => "Show on the website."
 			f.input :public, :label => "Is this event open to the public?"
 	   		f.input :cme_ceu, :label => "Does the event need to be certified for CME or CEU credits?" 
