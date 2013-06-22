@@ -10,7 +10,7 @@
     	<li> 
 	  <%= 
 	    @month = Date.today.beginning_of_month + i.months 
-	    if @month.to_s == params[:date_start]
+	    if @month.to_s == params[:date]
 	      link_to "#{@month.strftime("%B")} (x)", {
 		  :controller => 'speaker_requests',
 		  :action => 'calendar',
@@ -33,6 +33,15 @@
       <% states_array = states_list.map { |s| [s.name, s.name] }.insert(0, '--select--') %>
       <%= select_tag(:state, options_for_select(states_array), :class => "span12 state") %>
 
+      <% if params[:state] %>
+      <h5>Remove State</h5>
+      <%=
+ 	      link_to "#{params[:state]} (x)", {
+		  :controller => 'speaker_requests',
+		  :action => 'calendar',
+	      }    
+	   %> 	
+      <% end %>
   <!--end form -->    
   </div>
 <% end %>
