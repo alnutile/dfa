@@ -49,6 +49,7 @@
 			timeOnlyTitle: 'Choose Time',
 			timeText: 'Time',
 			hourText: 'Hour',
+			controlType: 'select',
 			minuteText: 'Minute',
 			secondText: 'Second',
 			millisecText: 'Millisecond',

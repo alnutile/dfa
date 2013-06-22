@@ -10,22 +10,18 @@
     <div class="container-narrow">
 	<%= render 'shared/topnav' %>
 	<div class="row-fluid content">
-	  <div class="span3 sidebar">
-	    <br/>
-            <div class="button-add">
-	      <%= render 'shared/button' %>
-	    </div>
-	    <%= render 'shared/search' %>
-	    <%= render 'shared/states' %>
-         </div>
-
-	  <div class="span9 inner">
-                <% unless @page_caching %>
-                  <% flash.each do |key, value| %>
-  	  	    <%= content_tag(:div, value, class: "alert alert-#{key}") %>               
-		  <% end %>
-	        <% end %>
-  		  <%= yield %>
+      <%= render 'layouts/fullsidebar' %>
+      <% if request.path != '/' %>
+  	    <div class="span9 inner">
+      <% else %>
+        <div class="span12 inner">
+      <% end %>
+      <% unless @page_caching %>
+        <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert alert-#{key}") %>               
+      <% end %>
+        <% end %>
+      <%= yield %>
 	  </div>
 	</div><!--end content area-->
 	<div class="footer row-fluid span10">
@@ -35,18 +31,6 @@
 		</footer>
 	</div>
   </div>
-  <!-- Modal -->
-  <div id="requestModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="requestModalLabel">Request</h3>
-    </div>
-    <div class="modal-body">
-      <p></p>
-    </div>
-    <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    </div>
-  </div>
+  <%= render 'shared/modal' %>
   </body>
 </html>

@@ -20,7 +20,11 @@ class SpeakerRequestsController < InheritedResources::Base
   end
 
   def calendar
-    @requests = SpeakerRequest.all
+    if params.has_key?(:state) 
+     @requests = SpeakerRequest.published.has_date.tagged_with(params[:state])
+    else 
+     @requests = SpeakerRequest.published.has_date
+    end 
     @requests_by_date = @requests.group_by { |r| r.date.strftime("%Y-%m-%d") } 
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
@@ -38,7 +42,7 @@ class SpeakerRequestsController < InheritedResources::Base
     @speaker_request = SpeakerRequest.new(params[:speaker_request])
     if @speaker_request.save
       flash[:success] = "Thanks for making the request. We will get back to you shortly"
-      redirect_to speaker_requests_path
+      redirect_to '/calendar'
       SpeakerRequestMail.new_request_notify(@speaker_request).deliver
     else
       render 'new'

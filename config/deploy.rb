@@ -44,5 +44,14 @@ namespace :deploy do
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end 
+  
+  task :clearcaches, :roles => :app do  
+      run "rm -f /var/www/dfa/current/public/index.html"
+      run "rm -rf /var/www/dfa/current/public/pages"
+      run "rm -f /var/www/dfa/current/public/contact.html"
+      run "rm -f /var/www/dfa/current/public/help.html"
   end
+
 end
+

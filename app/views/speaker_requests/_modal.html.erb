@@ -15,11 +15,11 @@
 
       <dt>Audience</dt>
       <dd>
-      <% 
-      if request.tag_list.empty? == true %>
+      
+      <% if request.tag_list.nil? == true %>
         None set
       <% else %>
-       <%= puts request.tag_list %>
+       <%= request.tag_list.to_s %>
       <% end %>
       </dd>
       
@@ -38,6 +38,15 @@
           None set
         <% else %>
           <%= request.location_name %>
+        <% end %>
+      </dd>
+      
+      <dt>State</dt>
+      <dd> 
+        <% if request.state_list.nil?  %>
+          None set
+        <% else %>
+          <%= request.state_list.to_s %>
         <% end %>
       </dd>
 

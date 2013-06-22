@@ -8,13 +8,13 @@ class SpeakerRequest < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :tags, :city, :state
   # validate :incorrect_date, :on => :create
-
   scope :published, -> { where published: true }
+  scope :has_date, -> { where("date IS NOT NULL")} 
   scope :content, ->(searched) { where(["content LIKE ?", "%#{searched}%"]) }
   scope :date_range, ->(start_date, end_date) {
     where("date between ? and ?", start_date, end_date)
   }
-
+  
   # date range / month object 
   #   pass it a range
   #   this is active_record

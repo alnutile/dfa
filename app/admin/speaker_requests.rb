@@ -2,14 +2,23 @@ ActiveAdmin.register SpeakerRequest do
 
   controller do
     cache_sweeper :speaker_request_sweeper
+
   end
 
 	index do
-		column :id, :label => "#"
-	    column :published, :label => "Published"
-        column :title
-	    column :date
-        column :requesting_org
+		#Can we just reorder the columns to have first name, last name, contact person, email, phone, org, added date?
+		column "Contact", :contact_person
+		column :email
+		column :phone
+		column :requesting_org
+	    column :published do |p|
+	    	p.published.to_s == 'true' ? 'Yes' : 'No'
+ 	    end
+	    column "Date of", :date
+	    column "Created", :created_at
+ 		column :state do |s|
+ 			s.state_list
+ 		end
 	    default_actions
   	end
 
@@ -31,7 +40,7 @@ ActiveAdmin.register SpeakerRequest do
 
 	   	end
 	   	f.inputs "Location: Online" do
-	   		f.input :online, :label => "Is it Online?", :hint => " Else fill in below"
+	   		f.input :online, :label => "Online or a Conference Call", :hint => " Else fill in below"
 
 	   	end
 
@@ -41,12 +50,13 @@ ActiveAdmin.register SpeakerRequest do
 	   		f.input :location_street_two, :label => "Second Part of Address"
 	   		f.input :location_zip
 	   		f.input :city_list, :label => "City"
-	   		f.input :state_list, :label => "State"
+	   		f.input :state_list, :label => "State", :as => :select, 
+	   		    :collection => us_states.collect{ |u| [u[0], u[0]] }
 	   		f.input :requesting_org
 	   		f.input :website, :hint => "full URL htt://google.com"
 	   		f.input :contact_person
-	   		f.input :phone
 	   		f.input :email
+	   		f.input :phone
 	   	end
 
    		f.actions

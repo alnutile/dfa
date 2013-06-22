@@ -1,4 +1,4 @@
-<%= form_tag speaker_requests_path, :method => 'get' do %>
+<%= form_tag("/calendar", :method => "get") do |f| %>
   <div class="well">  
   <% unless request.path == '/calendar' %>
     <h4>Search future requests by month</h4>
@@ -27,5 +27,12 @@
         </li>
     <% end %>
     </ul>
+    
+	<h5>Filter by State</h5>
+
+      <% states_array = states_list.map { |s| [s.name, s.name] }.insert(0, '--select--') %>
+      <%= select_tag(:state, options_for_select(states_array), :class => "span12 state") %>
+
+  <!--end form -->    
   </div>
 <% end %>

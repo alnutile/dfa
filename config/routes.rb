@@ -1,5 +1,12 @@
 Drfa::Application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  root :to => 'pages#show', :id => '1'
+
+
+  match '/help', to: 'pages#show', :id => '2'
+  match '/contact', to: 'pages#show', :id => '3'
+  match '/requests', to: 'speaker_requests#index' 
+  match '/calendar', to: 'speaker_requests#calendar'
 
   resources :speaker_requests
 
@@ -7,14 +14,9 @@ Drfa::Application.routes.draw do
 
   resources :pages
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-
-  root :to => 'pages#show', :id => '1'
-  match '/help', to: 'pages#show', :id => '2'
-  match '/contact', to: 'pages#show', :id => '3'
-  match '/requests', to: 'speaker_requests#index' 
-  match '/calendar', to: 'speaker_requests#calendar'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,15 +1,8 @@
 <div class="well">
 	<h5>Filter by State</h5>
-
-	<ul>
-	<%  
-	    states_list.each do |state| %>
-	  <li>
-	    <%= link_to state.name, {:state => state.name} %>
-	  </li>
-	<%  end 
-	%>
-
-	</ul>
+    <%= form_tag("/calendar", :method => "get") do |f| %>
+      <% states_array = states_list.map { |s| [s.name, s.name] }.insert(0, '--select--') %>
+      <%= select_tag(:state, options_for_select(states_array), :class => "span12 state") %>
+    <% end %>
 </div>
 
