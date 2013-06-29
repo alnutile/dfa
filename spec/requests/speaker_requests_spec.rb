@@ -56,7 +56,7 @@ describe "SP Search page" do
      click_link "Submit Request"
      fill_in "speaker_request_title", with: "Test Capy"
      fill_in "speaker_request_date", with: Time.now + 1.day
-     fill_in "speaker_request_state_list", with: "Capy"
+     #fill_in "speaker_request_state_list", with: "Capy"
     end 
     it "should have form" do
        should have_selector('h1', text: 'Submit Speaker Request')

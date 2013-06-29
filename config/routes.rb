@@ -3,7 +3,7 @@ Drfa::Application.routes.draw do
   root :to => 'pages#show', :id => '1'
 
 
-  match '/help', to: 'pages#show', :id => '2'
+  match '/about', to: 'pages#show', :id => '2'
   match '/contact', to: 'pages#show', :id => '3'
   match '/requests', to: 'speaker_requests#index' 
   match '/calendar', to: 'speaker_requests#calendar'
