@@ -13,8 +13,8 @@ $('document').ready(function() {
      search = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'\":\"') + '"}');
    };
 
-   $('select#state').on('change', function() {
-     $("select#state option:selected").each(function(){
+   $('select#state-select').on('change', function() {
+     $("select#state-select option:selected").each(function(){
        var selected = $(this).text();
        var loca = window.location.origin;
 

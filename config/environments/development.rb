@@ -36,4 +36,7 @@ Drfa::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #URL
+  config.host = "http://dfa.alfrednutile.info"
 end
