@@ -5,8 +5,21 @@
 	</head>
 	<body>
 		<h1>New Speaker Request has been made</h1>
-                <p><%= link_to "Click Here",
-		    "#{@url}/admin/speaker_requests/#{@speaker_request.id}" %> to see it and publish it if needed.
-		 </p>
+            <p>
+              <%= link_to "Click Here", "#{@url}/admin/speaker_requests/#{@speaker_request.id}" %> to see it and publish it if needed.
+            </p>
+            <p>
+              Date: <%= @speaker_request.date %><br>
+              Requesting Org: <%= @speaker_request.requesting_org %><br>
+              Website: <%= @speaker_request.website %><br>
+              Location Name: <%= @speaker_request.location_name %><br>
+              Location Street: <%= @speaker_request.location_street %><br>
+              Location Zip: <%= @speaker_request.location_zip %><br>
+              Contact Person: <%= @speaker_request.contact_person %><br>
+              Contact Phone: <%= @speaker_request.phone %><br>
+              Contact Email: <%= @speaker_request.email %><br>
+              <h3>Content:</h3>
+              <%= @speaker_request.content %></br>
+            </p>
 	</body>
 </html>

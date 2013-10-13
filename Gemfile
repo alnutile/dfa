@@ -20,6 +20,9 @@ gem 'therubyracer'
 gem 'rvm-capistrano'
 gem 'activeadmin'
 
+group :development do 
+	gem 'mailcatcher'
+end
 
 group :development, :test do
 	gem 'rspec-rails'
