@@ -31,7 +31,7 @@
 	<h5>Filter by State</h5>
 
       <% states_array = states_list.map { |s| [s.name, s.name] }.insert(0, '--select--') %>
-      <%= select_tag(:state, options_for_select(states_array), :class => "span12 state") %>
+      <%= select_tag(:state, options_for_select(states_array), :class => "span12 state", :id => "state-select") %>
 
       <% if params[:state] %>
       <h5>Remove State</h5>
