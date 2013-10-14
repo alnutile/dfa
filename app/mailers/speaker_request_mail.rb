@@ -4,11 +4,11 @@ class SpeakerRequestMail < ActionMailer::Base
   default cc: "atychen@gmail.com"
 
   def new_request_notify(speaker_request)
-    #@id = request.id
     @url = Rails.application.config.host
     @speaker_request = speaker_request
-    mail(to: "alfrednutile@gmail.com", subject: "New Request")
-    #logger.info "Email Sent #{@speaker_request}"
+    AdminUser.all.each do |a|
+      mail(to: a.email, subject: "New Request")
+    end
   end
 
 end
