@@ -10,6 +10,11 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
+public/index.html
+public/about.html
+public/help.html
+public/contact.html
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp

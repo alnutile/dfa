@@ -16,7 +16,7 @@
     <div>
       <h4>Request a Speaker for an Event</h4>
     </div>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :placeholder => "What is the name of the Event?" %>
   </div>
  
    <div class="field">
@@ -54,15 +54,9 @@
       	      'Train the Trainer?') %>
   </label>
 
-  <div class="control-group">	
-    <label class="control-label" for="requesting_org">
-      <%= label_tag(:requesting_org, "Requesting Org Name") %>
-    </label>
-    <div class="controls">
-     <%= f.text_field :requesting_org %>
-    </div>
-  </div>
-  <div class="control-group">	
+   <br>
+   <%= f.text_field :requesting_org, :placeholder => "Requesting Org Name" %>
+   <div class="control-group">
     <div>
       <h4>Location Info</h4>
     </div>
@@ -119,7 +113,7 @@
     </label>
     <div class="controls">
      <h4>If online what is the website?</h4>
-     <%= f.text_field :website %>
+     <%= f.text_field :website, :placeholder => "http://google.com" %>
     </div>
   </div>
   <div class="control-group">	
