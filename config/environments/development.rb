@@ -34,7 +34,7 @@ Drfa::Application.configure do
   config.assets.debug = true
 
   #URL
-  config.host = "http://dfa.alfrednutile.info"
+  config.host = "http://localhost:3001"
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }

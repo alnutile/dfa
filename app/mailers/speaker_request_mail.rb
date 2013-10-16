@@ -1,14 +1,11 @@
 class SpeakerRequestMail < ActionMailer::Base
-  default from: "admin@server.alfrednutile.info"
-  default to: "alfrednutile@gmail.com"
-  default cc: "atychen@gmail.com"
+  default to: Proc.new { AdminUser.pluck(:email) },
+          from: "admin@server.alfrednutile.info"
 
   def new_request_notify(speaker_request)
     @url = Rails.application.config.host
     @speaker_request = speaker_request
-    AdminUser.all.each do |a|
-      mail(to: a.email, subject: "New Request")
-    end
+    mail(subject: "New Request")
   end
 
 end
