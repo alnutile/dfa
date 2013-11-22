@@ -13,6 +13,15 @@ $('document').ready(function() {
      search = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'\":\"') + '"}');
    };
 
+   //Set state on load
+  var chosen_state = $("option:selected", this).val();
+  $('#speaker_request_state_list').val(chosen_state);
+         
+   $('select#state').on('change', function() {
+      var chosen_state = $("option:selected", this).val();
+      $('#speaker_request_state_list').val(chosen_state);
+   });
+
    $('select#state-select').on('change', function() {
      $("select#state-select option:selected").each(function(){
        var selected = $(this).text();

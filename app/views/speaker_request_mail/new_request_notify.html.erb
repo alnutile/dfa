@@ -14,6 +14,17 @@
               Website: <%= @speaker_request.website %><br>
               Location Name: <%= @speaker_request.location_name %><br>
               Location Street: <%= @speaker_request.location_street %><br>
+              Location Street: <%= @speaker_request.location_street %><br>
+              <% if @speaker_request.city.present? %>
+                City: <%= @speaker_request.city[0].name %><br>
+              <% else %>
+              City:<br>
+              <% end %>
+              <% if @speaker_request.state.present? %>
+                State: <%= @speaker_request.state[0].name %><br>
+              <% else %>
+              State:<br>
+              <% end %>
               Location Zip: <%= @speaker_request.location_zip %><br>
               Contact Person: <%= @speaker_request.contact_person %><br>
               Contact Phone: <%= @speaker_request.phone %><br>
