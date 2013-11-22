@@ -92,7 +92,6 @@ GEM
     diff-lcs (1.2.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    excon (0.25.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.1.0)
@@ -123,14 +122,6 @@ GEM
     haml (4.0.3)
       tilt
     has_scope (0.5.1)
-    heroku (3.0.0)
-      heroku-api (~> 0.3.7)
-      launchy (>= 0.3.2)
-      netrc (~> 0.7.7)
-      rest-client (~> 1.6.1)
-      rubyzip
-    heroku-api (0.3.15)
-      excon (~> 0.25.1)
     highline (1.6.19)
     hike (1.2.3)
     honeypot-captcha (0.0.2)
@@ -195,7 +186,6 @@ GEM
     net-ssh (2.6.7)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    netrc (0.7.7)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
@@ -245,8 +235,6 @@ GEM
     ref (1.0.5)
     responders (0.9.3)
       railties (~> 3.1)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -331,7 +319,6 @@ DEPENDENCIES
   faker (= 1.0.1)
   guard-rspec
   guard-spork (= 1.4.1)
-  heroku
   honeypot-captcha
   jquery-rails (< 3.0.0)
   jquery-ui-rails

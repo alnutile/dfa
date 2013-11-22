@@ -43,9 +43,6 @@ group :test do
 	gem 'js-test-driver-rails', '>= 0.5.0.pre2'
 end
 
-group :production do
-  gem 'heroku'
-end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
