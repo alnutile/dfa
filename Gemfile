@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'thin'
 gem 'rails', '3.2.13'
 gem 'acts-as-taggable-on'
 gem 'paperclip', "~> 3.0"
